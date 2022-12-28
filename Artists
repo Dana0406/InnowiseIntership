@@ -1,0 +1,24 @@
+CREATE TABLE Artists(
+Id SERIAL PRIMARY KEY,
+Singer VARCHAR(100),
+ALbum VARCHAR(100),
+Year_ INT,
+Sale INT
+);
+
+INSERT INTO Artists (Singer,Album,Year_,Sale)
+VALUES ('Bon Jovi','Have a nice day',2005,1200000),
+('Scorpions','Blackout',1982,400000),
+('Iron Maiden','Dance of Death',2003,2300000),
+('Bon Jovi','Crush',2000,600000),
+('Bon Jovi','2020',2020,1500000),
+('Iron Maiden','Piece of Mind',1983,1200000),
+('Scorpions','Crazy World',1990,800000),
+('Bon Jovi','Crush',2000,600000),
+('Iron Maiden','Rock in Rio',2002,500000),
+('Scorpions','World Wide Live',1985,500000);
+
+SELECT singer,SUM(sale) AS SummerySales
+FROM artists 
+GROUP BY singer
+HAVING SUM(sale)>2000000
